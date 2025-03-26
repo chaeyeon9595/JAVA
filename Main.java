@@ -1,54 +1,18 @@
 package org.example;
 
-import java.util.Scanner;
+// 문제 : 아래 코드가 실행되도록 해주세요.
 
 class Main {
     public static void main(String[] args) {
-
-        //학생1 정보 저장
-        //학생번호, 나이, 키, 반, 이름
-
-        int[] arr = new int[4];
-        arr[0] = 1;
-        arr[1] = 2;
-        arr[2] = 3;
-        arr[3] = 4;
-
-
-
-        Student stu1 = new Student();
-        stu1.name = "홍길동";
-        stu1.no = 2;
-        stu1.class_no = 5;
-        stu1.height = 180;
-        stu1.score = 80.7;
-
-        Student stu2 = new Student();
-        stu2.name = "김철수";
-        stu2.score = 90.0;
-        System.out.println(stu2.name);
-
-        //Student stu2 = stu1; -> 잘실행됨.
-
-        //int sut2 = sut1;
-        //-> 왜 오류? stu2가 받을 수 있는 타입은 Student로 설정됨
-        //int 타입은 받을 수 없어 오류
-
-        System.out.println(stu1.height);
-        System.out.println(stu2.height);
-        System.out.println(stu1.score);
-        System.out.println(stu2.score);
-
+        new 자동차().달리다(); //일회용 객체
+        new 자동차().달리다();
+        new 자동차().달리다(); // -->3번 달린 것? 아니다..
+        //1번 만들어지고 실행되고 소멸되고 또 만들어지고 실행되고 소멸되고.... 그렇게 3번 반복! 한 자동차가 3번 달린 것 아니다.
     }
-
 }
 
-
-//클래스(설계도.틀) = 새로운 타입 이름!
-class Student {
-    String name;
-    int no;
-    int height;
-    int class_no;
-    double score;
+class 자동차{
+    void 달리다(){
+        System.out.println("달리다");
+    }
 }
