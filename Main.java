@@ -1,35 +1,67 @@
 package org.example;
 
+// 문제 : 아래와 같이 출력되도록 해주세요.
+// 조건 : 소스코드 중복이 없어야 합니다.
+// 조건 : 복잡한 상속을 써도 됩니다.
 
 class Main {
     public static void main(String[] args) {
-        Cal.plus_print(10, 20);
-        // 출력 => 결과 : 30
+        System.out.println("== 청둥오리 ==");
+        청둥오리 a청둥오리 = new 청둥오리();
+        a청둥오리.날다(); // 오리가 날개로 날아갑니다.
+        a청둥오리.수영하다(); // 오리가 물갈퀴로 수영합니다.
 
-        Cal.plus_print(50, 20);
-        // 출력 => 결과 : 70
+        System.out.println("== 흰오리 ==");
+        흰오리 a흰오리 = new 흰오리();
+        a흰오리.날다(); // 오리가 날개로 날아갑니다.
+        a흰오리.수영하다(); // 오리가 물갈퀴로 수영합니다.
 
-        Cal.minus_print(50, 20);
-        // 출력 => 결과 : 30
+        System.out.println("== 고무오리 ==");
+        고무오리 a고무오리 = new 고무오리();
+        a고무오리.날다(); // 저는 못 날아요 ㅠㅠ
+        a고무오리.수영하다(); // 오리가 물에 둥둥 떠다닙니다.
 
-        Cal.minus_print(5, 2);
-        // 출력 => 결과 : 3
+        System.out.println("== 고무2오리 ==");
+        고무2오리 a고무2오리 = new 고무2오리();
+        a고무2오리.날다(); // 저는 못 날아요 ㅠㅠ
+        a고무2오리.수영하다(); // 오리가 물에 둥둥 떠다닙니다.
 
-        Cal.multi_print(5, 2);
-        // 출력 => 결과 : 10
+        System.out.println("== 로봇오리 ==");
+        로봇오리 a로봇오리 = new 로봇오리();
+        a로봇오리.날다(); // 오리가 날개로 날아갑니다.
+        a로봇오리.수영하다(); // 오리가 물에 둥둥 떠다닙니다.
+
+
+    }
+}
+class 오리 {
+    void 날다() {
+        System.out.println("오리가 날개로 날아갑니다.");
+    }
+
+    void 수영하다() {
+        System.out.println("오리가 물갈퀴로 수영합니다.");
+    }
+}
+class 흰오리 extends 오리 { }
+class 청둥오리 extends 오리 { }
+class 고무오리 extends 오리 {
+    void 날다() {
+        System.out.println("저는 못 날아요. ㅜㅠ");
+    }
+
+    void 수영하다() {
+        System.out.println("오리가 물에 둥둥 떠다닙니다.");
+    }
+}
+class 고무2오리 extends 오리 {
+    고무오리 a = new 고무오리();
+
+    void 날다(){
+        a.날다(); //오버라이딩.. 최대한 중복을 피함
     }
 }
 
-class Cal {
-    public static void plus_print(int a, int b) {
-        System.out.println(a + b);
-    }
-
-    public static void minus_print(int a, int b) {
-        System.out.println(a - b);
-    }
-
-    public static void multi_print(int a, int b) {
-        System.out.println(a * b);
-    }
-}
+class 로봇오리 extends 오리{
+    //날면서 물에 둥둥 떠나니는 상반된 속성을 가짐..
+    //어떻게 표현? 할 수 없음.. 형제관계에서 상속은 하지말기.
