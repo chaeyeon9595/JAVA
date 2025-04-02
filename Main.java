@@ -1,67 +1,47 @@
 package org.example;
 
-// 문제 : 아래와 같이 출력되도록 해주세요.
-// 조건 : 소스코드 중복이 없어야 합니다.
-// 조건 : 복잡한 상속을 써도 됩니다.
 
 class Main {
     public static void main(String[] args) {
-        System.out.println("== 청둥오리 ==");
-        청둥오리 a청둥오리 = new 청둥오리();
-        a청둥오리.날다(); // 오리가 날개로 날아갑니다.
-        a청둥오리.수영하다(); // 오리가 물갈퀴로 수영합니다.
 
-        System.out.println("== 흰오리 ==");
-        흰오리 a흰오리 = new 흰오리();
-        a흰오리.날다(); // 오리가 날개로 날아갑니다.
-        a흰오리.수영하다(); // 오리가 물갈퀴로 수영합니다.
 
-        System.out.println("== 고무오리 ==");
-        고무오리 a고무오리 = new 고무오리();
-        a고무오리.날다(); // 저는 못 날아요 ㅠㅠ
-        a고무오리.수영하다(); // 오리가 물에 둥둥 떠다닙니다.
+        Article article1 = new Article();
+        System.out.println(article1.lastID); // 1
 
-        System.out.println("== 고무2오리 ==");
-        고무2오리 a고무2오리 = new 고무2오리();
-        a고무2오리.날다(); // 저는 못 날아요 ㅠㅠ
-        a고무2오리.수영하다(); // 오리가 물에 둥둥 떠다닙니다.
 
-        System.out.println("== 로봇오리 ==");
-        로봇오리 a로봇오리 = new 로봇오리();
-        a로봇오리.날다(); // 오리가 날개로 날아갑니다.
-        a로봇오리.수영하다(); // 오리가 물에 둥둥 떠다닙니다.
+        Article article2= new Article();
+        System.out.println(article2.lastID); // 2
+
+        Article article3= new Article();
+        System.out.println(article3.lastID); // 3
+
+        Article article4= new Article();
+        System.out.println(article4.lastID); // 3
+
+        Article article5= new Article();
+        System.out.println(article5.lastID); // 3
+
+        Article article6= new Article();
+        System.out.println(article6.lastID); // 3
 
 
     }
-}
-class 오리 {
-    void 날다() {
-        System.out.println("오리가 날개로 날아갑니다.");
-    }
 
-    void 수영하다() {
-        System.out.println("오리가 물갈퀴로 수영합니다.");
-    }
-}
-class 흰오리 extends 오리 { }
-class 청둥오리 extends 오리 { }
-class 고무오리 extends 오리 {
-    void 날다() {
-        System.out.println("저는 못 날아요. ㅜㅠ");
-    }
-
-    void 수영하다() {
-        System.out.println("오리가 물에 둥둥 떠다닙니다.");
-    }
-}
-class 고무2오리 extends 오리 {
-    고무오리 a = new 고무오리();
-
-    void 날다(){
-        a.날다(); //오버라이딩.. 최대한 중복을 피함
-    }
 }
 
-class 로봇오리 extends 오리{
-    //날면서 물에 둥둥 떠나니는 상반된 속성을 가짐..
-    //어떻게 표현? 할 수 없음.. 형제관계에서 상속은 하지말기.
+class Article{
+    int id;
+    String regDate;
+    static int lastID = 0;
+
+    Article() {
+        this(lastID + 1, "2025-4-2");
+        lastID++;
+        //this메소드 : 객체(). 나 자신을 실행함. 생성자.
+    }
+
+    Article(int id, String regDate){
+        this.id = id;
+        this.regDate = regDate;
+    }
+}
